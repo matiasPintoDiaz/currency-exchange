@@ -1,11 +1,24 @@
 import { useState, useEffect } from "react";
 import "./App.css";
 
+// TEXTFIELD
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 
+// SELECT
+import InputLabel from "@mui/material/InputLabel";
+import MenuItem from "@mui/material/MenuItem";
+import FormControl from "@mui/material/FormControl";
+import Select, { SelectChangeEvent } from "@mui/material/Select";
+
 function App() {
   const [count, setCount] = useState(0);
+
+  // SELECT
+  const [currency, setCurrency] = useState("");
+  const handleChange = (event: SelectChangeEvent) => {
+    setCurrency(event.target.value);
+  };
 
   return (
     <div className="App">
@@ -17,9 +30,6 @@ function App() {
           count is {count}
         </button>
       </div>
-      <div>
-        <TextField id="outlined-basic" label="Outlined" variant="outlined" />
-      </div>
       <Box
         component="form"
         sx={{
@@ -28,7 +38,51 @@ function App() {
         noValidate
         autoComplete="off"
       >
-        <TextField id="outlined-basic" label="Outlined" variant="outlined" />
+        <TextField id="outlined-basic" label="From" variant="outlined" />
+        <FormControl sx={{ m: 1, minWidth: 80 }}>
+          <InputLabel id="demo-simple-select-autowidth-label">
+            Currency
+          </InputLabel>
+          <Select
+            labelId="demo-simple-select-autowidth-label"
+            id="demo-simple-select-autowidth"
+            value={currency}
+            onChange={handleChange}
+            autoWidth
+            label="Currency"
+          >
+            <MenuItem value={10}>Twenty</MenuItem>
+            <MenuItem value={21}>Twenty one</MenuItem>
+            <MenuItem value={22}>Twenty one and a half</MenuItem>
+          </Select>
+        </FormControl>
+      </Box>
+      <Box
+        component="form"
+        sx={{
+          "& > :not(style)": { m: 1, width: "25ch" },
+        }}
+        noValidate
+        autoComplete="off"
+      >
+        <TextField id="outlined-basic" label="To" variant="outlined" />
+        <FormControl sx={{ m: 1, minWidth: 80 }}>
+          <InputLabel id="demo-simple-select-autowidth-label">
+            Currency
+          </InputLabel>
+          <Select
+            labelId="demo-simple-select-autowidth-label"
+            id="demo-simple-select-autowidth"
+            value={currency}
+            onChange={handleChange}
+            autoWidth
+            label="Currency"
+          >
+            <MenuItem value={10}>Twenty</MenuItem>
+            <MenuItem value={21}>Twenty one</MenuItem>
+            <MenuItem value={22}>Twenty one and a half</MenuItem>
+          </Select>
+        </FormControl>
       </Box>
     </div>
   );
