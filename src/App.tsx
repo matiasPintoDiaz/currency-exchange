@@ -1,23 +1,37 @@
-import { useState } from 'react'
-import './App.css'
+import { useState, useEffect } from "react";
+import "./App.css";
+
+import Box from "@mui/material/Box";
+import TextField from "@mui/material/TextField";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState(0);
 
   return (
     <div className="App">
       <div>
-        <h1>Currency Exchange</h1>
+        <h1>Currency Exchange !</h1>
       </div>
-      <h1>Vite + React</h1>
       <div className="card">
         <button onClick={() => setCount((count) => count + 1)}>
           count is {count}
         </button>
       </div>
-      <p>https://www.frankfurter.app/docs/</p>
+      <div>
+        <TextField id="outlined-basic" label="Outlined" variant="outlined" />
+      </div>
+      <Box
+        component="form"
+        sx={{
+          "& > :not(style)": { m: 1, width: "25ch" },
+        }}
+        noValidate
+        autoComplete="off"
+      >
+        <TextField id="outlined-basic" label="Outlined" variant="outlined" />
+      </Box>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
