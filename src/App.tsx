@@ -11,7 +11,7 @@ import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select, { SelectChangeEvent } from "@mui/material/Select";
 
-import { getCurrencies } from "./services/data";
+import { getCurrenciesNames, allCurrenciesFromOneCurrency, conversionCurrencies } from "./services/data";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -23,7 +23,7 @@ function App() {
   };
 
   useEffect(() => {
-    getCurrencies();
+    getCurrenciesNames();
   }, [])
 
   return (
