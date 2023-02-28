@@ -3,8 +3,10 @@ const BASE_URL = "https://api.frankfurter.app/";
 const getCurrenciesNames = async (): Promise<Object> => {
   const response = await fetch(`${BASE_URL}currencies`);
   const data = await response.json();
+
+  let currenciesNames = Object.values(data);
   // console.log('desde fetching: ',  data);
-  return data;
+  return currenciesNames;
 }
 
 const allCurrenciesFromOneCurrency = async (currency: number): Promise<Object> => {

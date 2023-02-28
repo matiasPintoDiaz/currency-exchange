@@ -21,7 +21,7 @@ function App() {
   const [count, setCount] = useState(0);
 
   // SELECT
-  const [currency, setCurrency] = useState<Object>("");
+  const [currency, setCurrency] = useState<Array<string> | null>();
   const handleChange = (event: SelectChangeEvent) => {
     setCurrency(event.target.value);
   };
@@ -30,9 +30,9 @@ function App() {
   useEffect(() => {
     getCurrenciesNames().then(setCurrency);
     console.log(currency);
-    currenciesNames = Object.values(currency);
+    // currenciesNames = Object.values(currency);
     // console.log("<ii", currenciesNames);
-    currenciesNames.map((currency) => console.log(currency));
+    // currenciesNames.map((currency) => console.log(currency));
   }, [count]);
 
   return (
@@ -62,12 +62,13 @@ function App() {
             <Select
               labelId="demo-simple-select-autowidth-label"
               id="demo-simple-select-autowidth"
-              // value={currency}
+              value={""}
               onChange={handleChange}
+              // onChange={currency => currency && setCurrency(currency)}
               autoWidth
               label="Currency"
             >
-              {currenciesNames.map((currency) => (
+              {currency.map((currency) => (
                 <MenuItem value={currency}>{currency}</MenuItem>
               ))}
             </Select>
