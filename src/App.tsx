@@ -11,20 +11,29 @@ import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select, { SelectChangeEvent } from "@mui/material/Select";
 
-import { getCurrenciesNames, allCurrenciesFromOneCurrency, conversionCurrencies } from "./services/data";
+import {
+  getCurrenciesNames,
+  allCurrenciesFromOneCurrency,
+  conversionCurrencies,
+} from "./services/data";
 
 function App() {
   const [count, setCount] = useState(0);
 
   // SELECT
-  const [currency, setCurrency] = useState("");
+  const [currency, setCurrency] = useState<Object>("");
   const handleChange = (event: SelectChangeEvent) => {
     setCurrency(event.target.value);
   };
+  let currenciesNames: Array<string> = [];
 
   useEffect(() => {
-    getCurrenciesNames();
-  }, [])
+    getCurrenciesNames().then(setCurrency);
+    console.log(currency);
+    currenciesNames = Object.values(currency);
+    // console.log("<ii", currenciesNames);
+    currenciesNames.map((currency) => console.log(currency));
+  }, [count]);
 
   return (
     <div className="App">
@@ -49,18 +58,20 @@ function App() {
           <InputLabel id="demo-simple-select-autowidth-label">
             Currency
           </InputLabel>
-          <Select
-            labelId="demo-simple-select-autowidth-label"
-            id="demo-simple-select-autowidth"
-            value={currency}
-            onChange={handleChange}
-            autoWidth
-            label="Currency"
-          >
-            <MenuItem value={10}>Twenty</MenuItem>
-            <MenuItem value={21}>Twenty one</MenuItem>
-            <MenuItem value={22}>Twenty one and a half</MenuItem>
-          </Select>
+          {currency && (
+            <Select
+              labelId="demo-simple-select-autowidth-label"
+              id="demo-simple-select-autowidth"
+              // value={currency}
+              onChange={handleChange}
+              autoWidth
+              label="Currency"
+            >
+              {currenciesNames.map((currency) => (
+                <MenuItem value={currency}>{currency}</MenuItem>
+              ))}
+            </Select>
+          )}
         </FormControl>
       </Box>
       <Box
@@ -76,10 +87,10 @@ function App() {
           <InputLabel id="demo-simple-select-autowidth-label">
             Currency
           </InputLabel>
-          <Select
+          {/* <Select
             labelId="demo-simple-select-autowidth-label"
             id="demo-simple-select-autowidth"
-            value={currency}
+            // value={currency}
             onChange={handleChange}
             autoWidth
             label="Currency"
@@ -87,7 +98,7 @@ function App() {
             <MenuItem value={10}>Twenty</MenuItem>
             <MenuItem value={21}>Twenty one</MenuItem>
             <MenuItem value={22}>Twenty one and a half</MenuItem>
-          </Select>
+          </Select> */}
         </FormControl>
       </Box>
     </div>
