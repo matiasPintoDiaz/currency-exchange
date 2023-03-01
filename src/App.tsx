@@ -1,8 +1,7 @@
 import { useState, useEffect } from "react";
 import "./App.css";
 
-import Box from "@mui/material/Box";
-
+import CurrencyBox from "./components/CurrencyBox";
 import CurrencyMount from './components/CurrencyMount';
 import CurrencySelect from './components/CurrencySelect';
 
@@ -25,28 +24,14 @@ function App() {
           count is {count}
         </button>
       </div>
-      <Box
-        component="form"
-        sx={{
-          "& > :not(style)": { m: 1, width: "25ch" },
-        }}
-        noValidate
-        autoComplete="off"
-      >
+      <CurrencyBox>
         <CurrencyMount />
         <CurrencySelect />
-      </Box>
-      <Box
-        component="form"
-        sx={{
-          "& > :not(style)": { m: 1, width: "25ch" },
-        }}
-        noValidate
-        autoComplete="off"
-      >
+      </CurrencyBox>
+      <CurrencyBox>
         <CurrencyMount />
         <CurrencySelect />
-      </Box>
+      </CurrencyBox>
     </div>
   );
 }
