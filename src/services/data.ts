@@ -4,9 +4,11 @@ const getCurrenciesNames = async (): Promise<Object> => {
   const response = await fetch(`${BASE_URL}currencies`);
   const data = await response.json();
 
-  let currenciesNames = Object.values(data);
+  // let currenciesNames = Object.values(data);
   // console.log('desde fetching: ',  data);
-  return currenciesNames;
+  // return currenciesNames;
+  
+  return data;
 }
 
 const allCurrenciesFromOneCurrency = async (currency: number): Promise<Object> => {
