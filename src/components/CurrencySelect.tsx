@@ -13,7 +13,6 @@ import {
 export default function CurrencySelect() {
   const [currency, setCurrency] = useState<Object>();
   const [currencySelected, setCurrencySelected] = useState<string>("")
-  // const [currency, setCurrency] = useState<Array<string> | null>();
 
   const handleChange = (event: SelectChangeEvent) => {
     setCurrencySelected(event.target.value);
@@ -37,7 +36,7 @@ export default function CurrencySelect() {
           label="Currency"
         >
           {Object.values(currency).map((currency, index) => (
-            <MenuItem value={currency}>{currency}</MenuItem>
+            <MenuItem key={index} value={currency}>{currency}</MenuItem>
           ))}
         </Select>
       )}

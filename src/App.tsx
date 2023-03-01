@@ -1,10 +1,9 @@
 import { useState, useEffect } from "react";
 import "./App.css";
 
-// TEXTFIELD
 import Box from "@mui/material/Box";
-import TextField from "@mui/material/TextField";
 
+import CurrencyMount from './components/CurrencyMount';
 import CurrencySelect from './components/CurrencySelect';
 
 import {
@@ -34,7 +33,7 @@ function App() {
         noValidate
         autoComplete="off"
       >
-        <TextField id="outlined-basic" label="From" variant="outlined" />
+        <CurrencyMount />
         <CurrencySelect />
       </Box>
       <Box
@@ -45,7 +44,7 @@ function App() {
         noValidate
         autoComplete="off"
       >
-        <TextField id="outlined-basic" label="To" variant="outlined" />
+        <CurrencyMount />
         <CurrencySelect />
       </Box>
     </div>
