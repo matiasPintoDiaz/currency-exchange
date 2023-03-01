@@ -7,6 +7,8 @@ import CurrencySelect from "./components/CurrencySelect";
 import TypeButton from "./components/Button";
 
 import ButtonsStack from './components/ButtonsStack';
+import CallMadeIcon from "@mui/icons-material/CallMade";
+import ClearIcon from "@mui/icons-material/Clear";
 
 import {
   getCurrenciesNames,
@@ -32,7 +34,8 @@ function App() {
         <CurrencySelect />
       </CurrencyBox>
       <ButtonsStack /* className="buttons-box" */>
-        <TypeButton />
+        <TypeButton variant="contained" startIcon={<CallMadeIcon />}>Convert</TypeButton>
+        <TypeButton variant="outlined" startIcon={<ClearIcon />}>Clear</TypeButton>
       </ButtonsStack>
     </div>
   );

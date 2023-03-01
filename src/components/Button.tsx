@@ -1,16 +1,24 @@
-import React from "react";
+import { ReactNode } from "react";
 
 import Button from "@mui/material/Button";
 import CallMadeIcon from "@mui/icons-material/CallMade";
 import ClearIcon from "@mui/icons-material/Clear";
 
-export default function TypeButton() {
+type ButtonProps = {
+  children: ReactNode
+  variant: "contained" | "outlined"
+  startIcon: ReactNode
+}
+
+const TypeButton = (props: ButtonProps) => {
   return (
-    <Button variant="outlined" startIcon={<CallMadeIcon />}>
-      Convert
+    <Button variant={props.variant} startIcon={props.startIcon}>
+      {props.children}
     </Button>
   );
 }
+
+export default TypeButton;
 
 {
   /* <Button variant="contained" startIcon={<ClearIcon />}>
