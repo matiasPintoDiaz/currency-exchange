@@ -4,7 +4,9 @@ import "./App.css";
 import CurrencyBox from "./components/CurrencyBox";
 import CurrencyMount from "./components/CurrencyMount";
 import CurrencySelect from "./components/CurrencySelect";
-import ConvertButton from "./components/ConvertButton";
+import TypeButton from "./components/Button";
+
+import ButtonsStack from './components/ButtonsStack';
 
 import {
   getCurrenciesNames,
@@ -29,9 +31,9 @@ function App() {
         <CurrencyMount />
         <CurrencySelect />
       </CurrencyBox>
-      <div className="buttons-box">
-        <ConvertButton />
-      </div>
+      <ButtonsStack /* className="buttons-box" */>
+        <TypeButton />
+      </ButtonsStack>
     </div>
   );
 }
