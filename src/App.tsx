@@ -2,8 +2,9 @@ import { useState, useEffect } from "react";
 import "./App.css";
 
 import CurrencyBox from "./components/CurrencyBox";
-import CurrencyMount from './components/CurrencyMount';
-import CurrencySelect from './components/CurrencySelect';
+import CurrencyMount from "./components/CurrencyMount";
+import CurrencySelect from "./components/CurrencySelect";
+import ConvertButton from "./components/ConvertButton";
 
 import {
   getCurrenciesNames,
@@ -19,19 +20,18 @@ function App() {
       <div>
         <h1>Currency Exchange !</h1>
       </div>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
+      <div className="card"></div>
+      <CurrencyBox>
+        <CurrencyMount />
+        <CurrencySelect />
+      </CurrencyBox>
+      <CurrencyBox>
+        <CurrencyMount />
+        <CurrencySelect />
+      </CurrencyBox>
+      <div className="buttons-box">
+        <ConvertButton />
       </div>
-      <CurrencyBox>
-        <CurrencyMount />
-        <CurrencySelect />
-      </CurrencyBox>
-      <CurrencyBox>
-        <CurrencyMount />
-        <CurrencySelect />
-      </CurrencyBox>
     </div>
   );
 }
