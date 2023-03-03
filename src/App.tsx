@@ -13,9 +13,10 @@ import ClearIcon from "@mui/icons-material/Clear";
 function App() {
   const [count, setCount] = useState(0);
 
-  const handleClick = () => {
-    console.log('click');
-  }
+  function handleSubmit(event){
+    event.preventDefault();
+    console.log("click");
+  };
 
   return (
     <div className="App">
@@ -23,24 +24,35 @@ function App() {
         <h1>Currency Exchange !</h1>
       </div>
       <div className="card"></div>
-      <CurrencyBox>
-        <CurrencyAmount variant="outlined" />
-        <CurrencySelect />
-      </CurrencyBox>
-      <CurrencyBox>
-        <CurrencyAmount variant="outlined" />
-        <CurrencySelect />
-      </CurrencyBox>
-      <div className="buttons-box">
-        <ButtonsStack direction="row" spacing={2} /* className="buttons-box" */>
-          <TypeButton variant="contained" startIcon={<CallMadeIcon />} onClick={() => handleClick()}>
-            Convert
-          </TypeButton>
-          <TypeButton variant="outlined" startIcon={<ClearIcon />} onClick={() => handleClick()} >
-            Clear
-          </TypeButton>
-        </ButtonsStack>
-      </div>
+      <form action="" onSubmit={handleSubmit}>
+        <CurrencyBox>
+          <CurrencyAmount variant="outlined" />
+          <CurrencySelect />
+        </CurrencyBox>
+        <CurrencyBox>
+          <CurrencyAmount variant="outlined" />
+          <CurrencySelect />
+        </CurrencyBox>
+        <div className="buttons-box">
+          <ButtonsStack
+            direction="row"
+            spacing={2} /* className="buttons-box" */
+          >
+            <TypeButton
+              variant="contained"
+              startIcon={<CallMadeIcon />}
+            >
+              Convert
+            </TypeButton>
+            <TypeButton
+              variant="outlined"
+              startIcon={<ClearIcon />}
+            >
+              Clear
+            </TypeButton>
+          </ButtonsStack>
+        </div>
+      </form>
     </div>
   );
 }
