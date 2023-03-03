@@ -3,12 +3,14 @@ import { ReactNode } from "react";
 import Stack from "@mui/material/Stack";
 
 type StackProps = {
-  children: ReactNode;
+  children: ReactNode
+  direction: "row" | "column"
+  spacing: number
 };
 
 const ButtonsStack = (props: StackProps) => {
   return (
-    <Stack direction="row" spacing={2}>
+    <Stack direction={props.direction} spacing={props.spacing}>
       {props.children}
     </Stack>
   );

@@ -4,17 +4,11 @@ import "./App.css";
 import CurrencyBox from "./components/CurrencyBox";
 import CurrencyMount from "./components/CurrencyMount";
 import CurrencySelect from "./components/CurrencySelect";
-import TypeButton from "./components/Button";
+import TypeButton from "./components/TypeButton";
 
 import ButtonsStack from './components/ButtonsStack';
 import CallMadeIcon from "@mui/icons-material/CallMade";
 import ClearIcon from "@mui/icons-material/Clear";
-
-import {
-  getCurrenciesNames,
-  allCurrenciesFromOneCurrency,
-  conversionCurrencies,
-} from "./services/data";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -26,14 +20,14 @@ function App() {
       </div>
       <div className="card"></div>
       <CurrencyBox>
-        <CurrencyMount />
+        <CurrencyMount variant="outlined" />
         <CurrencySelect />
       </CurrencyBox>
       <CurrencyBox>
-        <CurrencyMount />
+        <CurrencyMount variant="outlined" />
         <CurrencySelect />
       </CurrencyBox>
-      <ButtonsStack /* className="buttons-box" */>
+      <ButtonsStack direction="row" spacing={2} /* className="buttons-box" */>
         <TypeButton variant="contained" startIcon={<CallMadeIcon />}>Convert</TypeButton>
         <TypeButton variant="outlined" startIcon={<ClearIcon />}>Clear</TypeButton>
       </ButtonsStack>

@@ -10,7 +10,7 @@ import {
   conversionCurrencies,
 } from "../services/data";
 
-export default function CurrencySelect() {
+const CurrencySelect = () => {
   const [currency, setCurrency] = useState<Object>();
   const [currencySelected, setCurrencySelected] = useState<string>("")
 
@@ -25,11 +25,11 @@ export default function CurrencySelect() {
 
   return (
     <FormControl sx={{ m: 1, minWidth: 80 }}>
-      <InputLabel id="demo-simple-select-autowidth-label">Currency</InputLabel>
+      <InputLabel>Currency</InputLabel>
       {currency && (
         <Select
-          labelId="demo-simple-select-autowidth-label"
-          id="demo-simple-select-autowidth"
+          labelId="currency"
+          id="currency-select"
           value={currencySelected}
           onChange={handleChange}
           autoWidth
@@ -43,3 +43,5 @@ export default function CurrencySelect() {
     </FormControl>
   );
 }
+
+export default CurrencySelect;

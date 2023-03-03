@@ -19,9 +19,3 @@ const TypeButton = (props: ButtonProps) => {
 }
 
 export default TypeButton;
-
-{
-  /* <Button variant="contained" startIcon={<ClearIcon />}>
-        Send
-      </Button> */
-}

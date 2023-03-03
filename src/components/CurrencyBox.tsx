@@ -14,7 +14,6 @@ const CurrencyBox = (props: BoxProps ) => {
         "& > :not(style)": { m: 1, width: "25ch" },
       }}
       noValidate
-      autoComplete="off"
     >
       {props.children}
     </Box>
