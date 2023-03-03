@@ -15,15 +15,11 @@ import {
   allCurrenciesFromOneCurrency,
   conversionCurrencies,
 } from "./services/data";
+import Form from "./components/form";
 
 function App() {
   const [count, setCount] = useState(0);
   const [amount1, setAmount1] = useState(1);
-
-  function handleSubmit(event){
-    event.preventDefault();
-    console.log("click");
-  };
 
   return (
     <div className="App">
@@ -31,7 +27,8 @@ function App() {
         <h1>Currency Exchange !</h1>
       </div>
       <div className="card"></div>
-      <form action="" onSubmit={handleSubmit}>
+      <Form />
+      {/* <form action="" onSubmit={handleSubmit}>
         <CurrencyBox>
           <CurrencyAmount variant="outlined" value={amount1} />
           <CurrencySelect />
@@ -43,7 +40,7 @@ function App() {
         <div className="buttons-box">
           <ButtonsStack
             direction="row"
-            spacing={2} /* className="buttons-box" */
+            spacing={2}
           >
             <TypeButton
               variant="contained"
@@ -59,7 +56,7 @@ function App() {
             </TypeButton>
           </ButtonsStack>
         </div>
-      </form>
+      </form> */}
     </div>
   );
 }
