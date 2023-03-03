@@ -10,8 +10,15 @@ import ButtonsStack from "./components/ButtonsStack";
 import CallMadeIcon from "@mui/icons-material/CallMade";
 import ClearIcon from "@mui/icons-material/Clear";
 
+import {
+  getCurrenciesNames,
+  allCurrenciesFromOneCurrency,
+  conversionCurrencies,
+} from "./services/data";
+
 function App() {
   const [count, setCount] = useState(0);
+  const [amount1, setAmount1] = useState(1);
 
   function handleSubmit(event){
     event.preventDefault();
@@ -26,11 +33,11 @@ function App() {
       <div className="card"></div>
       <form action="" onSubmit={handleSubmit}>
         <CurrencyBox>
-          <CurrencyAmount variant="outlined" />
+          <CurrencyAmount variant="outlined" value={amount1} />
           <CurrencySelect />
         </CurrencyBox>
         <CurrencyBox>
-          <CurrencyAmount variant="outlined" />
+          <CurrencyAmount variant="outlined" value={0} />
           <CurrencySelect />
         </CurrencyBox>
         <div className="buttons-box">
