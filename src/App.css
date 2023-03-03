@@ -12,3 +12,9 @@
 .read-the-docs {
   color: #888;
 }
+
+.buttons-box {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+}

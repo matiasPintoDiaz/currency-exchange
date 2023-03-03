@@ -12,7 +12,7 @@ type ButtonProps = {
 
 const TypeButton = (props: ButtonProps) => {
   return (
-    <Button variant={props.variant} startIcon={props.startIcon}>
+    <Button variant={props.variant} startIcon={props.startIcon} style={{minWidth: "120.05px"}}>
       {props.children}
     </Button>
   );

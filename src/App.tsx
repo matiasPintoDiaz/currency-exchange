@@ -6,7 +6,7 @@ import CurrencyMount from "./components/CurrencyMount";
 import CurrencySelect from "./components/CurrencySelect";
 import TypeButton from "./components/TypeButton";
 
-import ButtonsStack from './components/ButtonsStack';
+import ButtonsStack from "./components/ButtonsStack";
 import CallMadeIcon from "@mui/icons-material/CallMade";
 import ClearIcon from "@mui/icons-material/Clear";
 
@@ -27,10 +27,16 @@ function App() {
         <CurrencyMount variant="outlined" />
         <CurrencySelect />
       </CurrencyBox>
-      <ButtonsStack direction="row" spacing={2} /* className="buttons-box" */>
-        <TypeButton variant="contained" startIcon={<CallMadeIcon />}>Convert</TypeButton>
-        <TypeButton variant="outlined" startIcon={<ClearIcon />}>Clear</TypeButton>
-      </ButtonsStack>
+      <div className="buttons-box">
+        <ButtonsStack direction="row" spacing={2} /* className="buttons-box" */>
+          <TypeButton variant="contained" startIcon={<CallMadeIcon />}>
+            Convert
+          </TypeButton>
+          <TypeButton variant="outlined" startIcon={<ClearIcon />}>
+            Clear
+          </TypeButton>
+        </ButtonsStack>
+      </div>
     </div>
   );
 }
