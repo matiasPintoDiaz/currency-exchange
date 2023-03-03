@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import "./App.css";
 
 import CurrencyBox from "./components/CurrencyBox";
-import CurrencyMount from "./components/CurrencyMount";
+import CurrencyAmount from "./components/CurrencyAmount";
 import CurrencySelect from "./components/CurrencySelect";
 import TypeButton from "./components/TypeButton";
 
@@ -13,6 +13,10 @@ import ClearIcon from "@mui/icons-material/Clear";
 function App() {
   const [count, setCount] = useState(0);
 
+  const handleClick = () => {
+    console.log('click');
+  }
+
   return (
     <div className="App">
       <div>
@@ -20,19 +24,19 @@ function App() {
       </div>
       <div className="card"></div>
       <CurrencyBox>
-        <CurrencyMount variant="outlined" />
+        <CurrencyAmount variant="outlined" />
         <CurrencySelect />
       </CurrencyBox>
       <CurrencyBox>
-        <CurrencyMount variant="outlined" />
+        <CurrencyAmount variant="outlined" />
         <CurrencySelect />
       </CurrencyBox>
       <div className="buttons-box">
         <ButtonsStack direction="row" spacing={2} /* className="buttons-box" */>
-          <TypeButton variant="contained" startIcon={<CallMadeIcon />}>
+          <TypeButton variant="contained" startIcon={<CallMadeIcon />} onClick={() => handleClick()}>
             Convert
           </TypeButton>
-          <TypeButton variant="outlined" startIcon={<ClearIcon />}>
+          <TypeButton variant="outlined" startIcon={<ClearIcon />} onClick={() => handleClick()} >
             Clear
           </TypeButton>
         </ButtonsStack>
