@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from "react";
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
@@ -19,7 +19,7 @@ const CurrencySelect = () => {
     setCurrencySelected(event.target.value);
 
     // select = Euro ---->>> currencyKey = EUR (para fetch)
-    if(currency){
+    if (currency) {
       Object.entries(currency).forEach(([key, value]) => {
         if (value === event.target.value) {
           setCurrencyKey(key);
@@ -32,8 +32,7 @@ const CurrencySelect = () => {
   useEffect(() => {
     getCurrenciesNames().then(setCurrency);
     // console.log('zi', currency);
-  }, [ , currencySelected]);
-
+  }, [, currencySelected]);
 
   return (
     <FormControl sx={{ m: 1, minWidth: 80 }}>
@@ -48,12 +47,14 @@ const CurrencySelect = () => {
           label="Currency"
         >
           {Object.values(currency).map((currency, index) => (
-            <MenuItem key={index} value={currency}>{currency}</MenuItem>
+            <MenuItem key={index} value={currency}>
+              {currency}
+            </MenuItem>
           ))}
         </Select>
       )}
     </FormControl>
   );
-}
+};
 
 export default CurrencySelect;

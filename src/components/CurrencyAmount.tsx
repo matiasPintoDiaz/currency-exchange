@@ -6,7 +6,14 @@ interface CurrencyMountProps {
 }
 
 const CurrencyAmount = (props: CurrencyMountProps) => {
-  return <TextField id="outlined-basic" label="Amount" variant={props.variant} value={props.value} />;
-}
+  return (
+    <TextField
+      id="outlined-basic"
+      label="Amount"
+      variant={props.variant}
+      value={props.value}
+    />
+  );
+};
 
 export default CurrencyAmount;
