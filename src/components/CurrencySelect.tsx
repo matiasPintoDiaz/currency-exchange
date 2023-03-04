@@ -26,12 +26,12 @@ const CurrencySelect = () => {
         }
       });
     }
-    console.log('fuera de if: ', currencyKey);
+    // console.log('fuera de if: ', currencyKey);
   };
 
   useEffect(() => {
     getCurrenciesNames().then(setCurrency);
-    console.log('zi', currency);
+    // console.log('zi', currency);
   }, [ , currencySelected]);
 
 

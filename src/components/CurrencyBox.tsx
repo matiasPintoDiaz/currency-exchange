@@ -2,7 +2,7 @@ import { ReactNode } from "react";
 
 import Box from "@mui/material/Box";
 
-type BoxProps = {
+interface BoxProps {
   children: ReactNode;
 };
 

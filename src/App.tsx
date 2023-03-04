@@ -15,7 +15,7 @@ import {
   allCurrenciesFromOneCurrency,
   conversionCurrencies,
 } from "./services/data";
-import Form from "./components/form";
+import Form from "./components/Form";
 
 function App() {
   const [count, setCount] = useState(0);

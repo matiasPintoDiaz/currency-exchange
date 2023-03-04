@@ -2,7 +2,7 @@ import { ReactNode } from "react";
 
 import Stack from "@mui/material/Stack";
 
-type StackProps = {
+interface StackProps {
   children: ReactNode
   direction: "row" | "column"
   spacing: number

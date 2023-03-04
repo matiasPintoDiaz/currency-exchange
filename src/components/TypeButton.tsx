@@ -2,11 +2,13 @@ import { ReactNode } from "react";
 
 import Button from "@mui/material/Button";
 
-type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
+type BaseProps = React.ButtonHTMLAttributes<HTMLButtonElement>;
+
+type ButtonProps = {
   children: ReactNode;
   variant: "contained" | "outlined";
   startIcon: ReactNode;
-};
+} & BaseProps;
 
 const TypeButton = (props: ButtonProps) => {
   /* const handleClick = () => {
