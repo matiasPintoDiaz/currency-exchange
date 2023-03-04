@@ -23,8 +23,15 @@ import {
 } from "../services/data";
 
 export default function form() {
-  const [amount1, setAmount1] = useState("");
-  const [amount2, setAmount2] = useState("");
+  const [amount, setAmount] = useState({
+    amount1: "0",
+    amount2: "0",
+  });
+
+  // TEXTFIELD
+  const handleChangeAmount = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setAmount({ ...amount, [event.target.name]: event.target.value });
+  };
 
   // SELECT
   const [currency, setCurrency] = useState<Object>();
@@ -67,29 +74,21 @@ export default function form() {
 
   function handleSubmit(event: any) {
     event.preventDefault();
-    let zi = Number(amount1);
-    conversionCurrencies(zi, currencyKey1, currencyKey2);
-    console.log("click");
+    let amountToConvert = Number(amount.amount1);
+    conversionCurrencies(amountToConvert, currencyKey1, currencyKey2);
   }
-
-  // TEXTFIELD
-  const handleChangeOne = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setAmount1(event.target.value);
-  };
-  const handleChangeTwo = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setAmount2(event.target.value);
-  };
 
   return (
     <form action="" onSubmit={handleSubmit}>
       <CurrencyBox>
         {/* <CurrencyAmount miFuncion={} variant="outlined" value={amount1}  /> */}
         <TextField
-          onChange={handleChangeOne}
           id="outlined-basic"
           label="Amount"
           variant="outlined"
-          value={amount1}
+          name="amount1"
+          //value={amount1}
+          onChange={handleChangeAmount}
         />
         <FormControl sx={{ m: 1, minWidth: 80 }}>
           <InputLabel>Currency</InputLabel>
@@ -115,11 +114,12 @@ export default function form() {
       <CurrencyBox>
         {/* <CurrencyAmount miFuncion={} variant="outlined" value={0} /> */}
         <TextField
-          onChange={handleChangeTwo}
           id="outlined-basic"
           label="Amount"
           variant="outlined"
-          value={amount2}
+          name="amount2"
+          //value={amount2}
+          onChange={handleChangeAmount}
         />
         {/* <CurrencySelect /> */}
         <FormControl sx={{ m: 1, minWidth: 80 }}>
