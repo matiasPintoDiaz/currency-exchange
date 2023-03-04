@@ -24,8 +24,8 @@ import {
 
 export default function form() {
   const [amount, setAmount] = useState({
-    amount1: "0",
-    amount2: "0",
+    amount1: "1",
+    amount2: "",
   });
 
   // TEXTFIELD
@@ -83,11 +83,11 @@ export default function form() {
       <CurrencyBox>
         {/* <CurrencyAmount miFuncion={} variant="outlined" value={amount1}  /> */}
         <TextField
-          id="outlined-basic"
+          id="Amount-1"
           label="Amount"
           variant="outlined"
           name="amount1"
-          //value={amount1}
+          value={amount.amount1}
           onChange={handleChangeAmount}
         />
         <FormControl sx={{ m: 1, minWidth: 80 }}>
@@ -114,11 +114,11 @@ export default function form() {
       <CurrencyBox>
         {/* <CurrencyAmount miFuncion={} variant="outlined" value={0} /> */}
         <TextField
-          id="outlined-basic"
+          id="Amount-2"
           label="Amount"
           variant="outlined"
           name="amount2"
-          //value={amount2}
+          value={amount.amount2}
           onChange={handleChangeAmount}
         />
         {/* <CurrencySelect /> */}
