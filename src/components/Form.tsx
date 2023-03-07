@@ -35,47 +35,38 @@ export default function form() {
 
   // SELECT
   const [currency, setCurrency] = useState<Object>();
-  const [currencySelected1, setCurrencySelected1] = useState<string>("");
-  const [currencyKey1, setCurrencyKey1] = useState<string>("");
 
-  const [currencySelected2, setCurrencySelected2] = useState<string>("");
-  const [currencyKey2, setCurrencyKey2] = useState<string>("");
+  const [currencYSelected, setCurrencYSelected] = useState({
+    currencySelected1: "",
+    currencySelected2: ""
+  });
+
+  const [currencyKey, setCurrencyKey] = useState({
+    currencySelected1: "",
+    currencySelected2: ""
+  });
+
+  const handleChangeCurrency = (event: SelectChangeEvent) => {
+    setCurrencYSelected({ ...currencYSelected, [event.target.name]: event.target.value });
+    
+    if (currency) {
+      Object.entries(currency).forEach(([key, value]) => {
+        if (value === event.target.value) {
+          console.log('key: ', key);
+          setCurrencyKey({...currencyKey, [event.target.name]: key});
+        }
+      });
+    }
+  };
 
   useEffect(() => {
     getCurrenciesNames().then(setCurrency);
-    // console.log('zi', currency);
-  }, [currencySelected1]);
-
-  const handleChange1 = (event: SelectChangeEvent) => {
-    setCurrencySelected1(event.target.value);
-
-    // select = Euro ---->>> currencyKey = EUR (para fetch)
-    if (currency) {
-      Object.entries(currency).forEach(([key, value]) => {
-        if (value === event.target.value) {
-          setCurrencyKey1(key);
-        }
-      });
-    }
-  };
-
-  const handleChange2 = (event: SelectChangeEvent) => {
-    setCurrencySelected2(event.target.value);
-
-    // select = Euro ---->>> currencyKey = EUR (para fetch)
-    if (currency) {
-      Object.entries(currency).forEach(([key, value]) => {
-        if (value === event.target.value) {
-          setCurrencyKey2(key);
-        }
-      });
-    }
-  };
+  }, [currencYSelected]);
 
   function handleSubmit(event: any) {
     event.preventDefault();
     let amountToConvert = Number(amount.amount1);
-    conversionCurrencies(amountToConvert, currencyKey1, currencyKey2);
+    conversionCurrencies(amountToConvert, currencyKey.currencySelected1, currencyKey.currencySelected2);
   }
 
   return (
@@ -94,12 +85,13 @@ export default function form() {
           <InputLabel>Currency</InputLabel>
           {currency && (
             <Select
-              labelId="currency"
               id="currency-select"
-              value={currencySelected1}
-              onChange={handleChange1}
-              autoWidth
               label="Currency"
+              labelId="currency"
+              name="currencySelected1"
+              value={currencYSelected.currencySelected1}
+              onChange={handleChangeCurrency}
+              autoWidth
             >
               {Object.values(currency).map((currency, index) => (
                 <MenuItem key={index} value={currency}>
@@ -126,12 +118,13 @@ export default function form() {
           <InputLabel>Currency</InputLabel>
           {currency && (
             <Select
-              labelId="currency"
               id="currency-select"
-              value={currencySelected2}
-              onChange={handleChange2}
-              autoWidth
               label="Currency"
+              labelId="currency"
+              name="currencySelected2"
+              value={currencYSelected.currencySelected2}
+              onChange={handleChangeCurrency}
+              autoWidth
             >
               {Object.values(currency).map((currency, index) => (
                 <MenuItem key={index} value={currency}>

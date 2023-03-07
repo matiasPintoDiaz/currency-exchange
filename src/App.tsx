@@ -62,3 +62,10 @@ function App() {
 }
 
 export default App;
+
+// 1. Hacer lo mismo que lo de handleChange de TextField pero con Select.
+// 2. Mostrar resultado de la conversión en TextField 2.
+// 3. Arreglar funcionalidad de botón CLEAR.
+// 4. Una vez todo funcionando, empezar a mover funcionalidad a los componentes propios de cada uno.
+
+// *. Limpiar (ahora o después) archivo App.tsx
