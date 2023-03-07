@@ -67,21 +67,21 @@ export default function form() {
 
   const handleSubmit = async (event: any) => {
     event.preventDefault();
+
     let amountToConvert = Number(amount.amount1);
     const response = await conversionCurrencies(
       amountToConvert,
       currencyKey.currencySelected1,
       currencyKey.currencySelected2
     );
-    console.log(typeof response);
-    setAmount({ ...amount, [amount.amount2]: response.toString() });
+
+    setAmount({ ...amount, amount2: response.toString() });
   };
 
   const deleteInfo = () => {
     console.log("primero: ", currencYSelected.currencySelected1);
     
     console.log("segundo: ", currencYSelected.currencySelected1);
-    return "";
   };
 
   return (
@@ -117,7 +117,6 @@ export default function form() {
               </Select>
             )}
           </FormControl>
-          ;
         </CurrencyBox>
         <CurrencyBox>
           {/* <CurrencyAmount miFuncion={} variant="outlined" value={0} /> */}
@@ -127,7 +126,7 @@ export default function form() {
             variant="outlined"
             name="amount2"
             value={amount.amount2}
-            onChange={handleChangeAmount}
+            // onChange={}
           />
           {/* <CurrencySelect /> */}
           <FormControl sx={{ m: 1, minWidth: 80 }}>
@@ -163,10 +162,10 @@ export default function form() {
         </div>
       </form>
       <TypeButton
-        type="clear"
+        type="button"
         variant="outlined"
         startIcon={<ClearIcon />}
-        onClick={deleteInfo}
+        onClick={() => deleteInfo()}
       >
         Clear
       </TypeButton>
