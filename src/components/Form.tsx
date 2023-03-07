@@ -16,6 +16,8 @@ import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select, { SelectChangeEvent } from "@mui/material/Select";
 
+import Button from "@mui/material/Button";
+
 import {
   getCurrenciesNames,
   allCurrenciesFromOneCurrency,
@@ -23,12 +25,12 @@ import {
 } from "../services/data";
 
 export default function form() {
+  // TEXTFIELD
   const [amount, setAmount] = useState({
     amount1: "1",
     amount2: "",
   });
 
-  // TEXTFIELD
   const handleChangeAmount = (event: React.ChangeEvent<HTMLInputElement>) => {
     setAmount({ ...amount, [event.target.name]: event.target.value });
   };
@@ -78,10 +80,14 @@ export default function form() {
     setAmount({ ...amount, amount2: response.toString() });
   };
 
-  const deleteInfo = () => {
-    console.log("primero: ", currencYSelected.currencySelected1);
-    
-    console.log("segundo: ", currencYSelected.currencySelected1);
+  const handleClick = () => {
+    // event.preventDefault();
+    setAmount({ ...amount, amount2: "" });
+    setCurrencYSelected({
+      ...currencYSelected,
+      currencySelected1: "",
+      currencySelected2: "",
+    });
   };
 
   return (
@@ -155,20 +161,24 @@ export default function form() {
             direction="row"
             spacing={2} /* className="buttons-box" */
           >
-            <TypeButton type="submit" variant="contained" startIcon={<CallMadeIcon />}>
+            <TypeButton
+              type="submit"
+              variant="contained"
+              startIcon={<CallMadeIcon />}
+            >
               Convert
             </TypeButton>
+            <Button
+              type="button"
+              variant="outlined"
+              startIcon={<ClearIcon />}
+              onClick={handleClick}
+            >
+              Clear
+            </Button>
           </ButtonsStack>
         </div>
       </form>
-      <TypeButton
-        type="button"
-        variant="outlined"
-        startIcon={<ClearIcon />}
-        onClick={() => deleteInfo()}
-      >
-        Clear
-      </TypeButton>
     </>
   );
 }

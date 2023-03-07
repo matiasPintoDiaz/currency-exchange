@@ -26,9 +26,7 @@ function App() {
 
 export default App;
 
-
-// 2. Mostrar resultado de la conversión en TextField 2.
 // 3. Arreglar funcionalidad de botón CLEAR.
 // 4. Una vez todo funcionando, empezar a mover funcionalidad a los componentes propios de cada uno.
 
-// *. Limpiar (ahora o después) archivo App.tsx
+// 5. Mostrar en texto la conversión realizada y/o mostrar el equivalente (1 a 1).
