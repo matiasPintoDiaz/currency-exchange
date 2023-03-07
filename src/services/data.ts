@@ -14,15 +14,15 @@ const getCurrenciesNames = async (): Promise<Object> => {
 const allCurrenciesFromOneCurrency = async (currency: number): Promise<Object> => {
   const response = await fetch(`${BASE_URL}latest?from=${currency}`);
   const data = await response.json();
-  console.log('desde fetching: ', data);
+  // console.log('desde fetching: ', data);
   return '';
 }
 
 const conversionCurrencies = async (amount: number, currencyOne: string, currencyTwo: string): Promise<Object> => {
   const response = await fetch(`${BASE_URL}latest?amount=${amount}&from=${currencyOne}&to=${currencyTwo}`);
   const data = await response.json();
-  console.log('desde fetching: ', data.rates[currencyTwo]);
-  return '';
+  // console.log('desde fetching: ', data.rates[currencyTwo]);
+  return data.rates[currencyTwo];
 }
 
 export {
