@@ -79,14 +79,7 @@ export default function form() {
 
   const deleteInfo = () => {
     console.log("primero: ", currencYSelected.currencySelected1);
-    setCurrencYSelected({
-      ...currencYSelected,
-      [currencYSelected.currencySelected1]: "",
-    });
-    setCurrencYSelected({
-      ...currencYSelected,
-      [currencYSelected.currencySelected2]: "",
-    });
+    
     console.log("segundo: ", currencYSelected.currencySelected1);
     return "";
   };
@@ -163,16 +156,17 @@ export default function form() {
             direction="row"
             spacing={2} /* className="buttons-box" */
           >
-            <TypeButton variant="contained" startIcon={<CallMadeIcon />}>
+            <TypeButton type="submit" variant="contained" startIcon={<CallMadeIcon />}>
               Convert
             </TypeButton>
           </ButtonsStack>
         </div>
       </form>
       <TypeButton
+        type="clear"
         variant="outlined"
         startIcon={<ClearIcon />}
-        onClick={() => deleteInfo()}
+        onClick={deleteInfo}
       >
         Clear
       </TypeButton>

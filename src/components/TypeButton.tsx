@@ -6,18 +6,15 @@ type BaseProps = React.ButtonHTMLAttributes<HTMLButtonElement>;
 
 type ButtonProps = {
   children: ReactNode;
+  tipo: "clear" | "submit" | "clear";
   variant: "contained" | "outlined";
   startIcon: ReactNode;
 } & BaseProps;
 
 const TypeButton = (props: ButtonProps) => {
-  /* const handleClick = () => {
-    console.log('sadasd');
-  } */
-
   return (
     <Button
-      type="submit"
+      type={props.tipo}
       variant={props.variant}
       startIcon={props.startIcon}
       style={{ minWidth: "120.05px" }} /* onClick={() => handleClick()} */
