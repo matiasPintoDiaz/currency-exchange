@@ -81,7 +81,6 @@ export default function form() {
   };
 
   const handleClick = () => {
-    // event.preventDefault();
     setAmount({ ...amount, amount2: "" });
     setCurrencYSelected({
       ...currencYSelected,
@@ -157,10 +156,7 @@ export default function form() {
           </FormControl>
         </CurrencyBox>
         <div className="buttons-box">
-          <ButtonsStack
-            direction="row"
-            spacing={2} /* className="buttons-box" */
-          >
+          <ButtonsStack direction="row" spacing={2}>
             <TypeButton
               type="submit"
               variant="contained"

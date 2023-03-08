@@ -9,7 +9,6 @@ type ButtonProps = {
   type: "submit" | "button";
   variant: "contained" | "outlined";
   startIcon: ReactNode;
-  onClick?: () => void;
 } & BaseProps;
 
 const TypeButton = (props: ButtonProps) => {
@@ -19,7 +18,6 @@ const TypeButton = (props: ButtonProps) => {
       variant={props.variant}
       startIcon={props.startIcon}
       style={{ minWidth: "120.05px" }}
-      // onClick={handleClick}
     >
       {props.children}
     </Button>

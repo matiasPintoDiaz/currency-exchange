@@ -25,8 +25,3 @@ function App() {
 }
 
 export default App;
-
-// 3. Arreglar funcionalidad de botón CLEAR.
-// 4. Una vez todo funcionando, empezar a mover funcionalidad a los componentes propios de cada uno.
-
-// 5. Mostrar en texto la conversión realizada y/o mostrar el equivalente (1 a 1).
